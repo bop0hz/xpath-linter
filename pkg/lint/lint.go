@@ -62,8 +62,7 @@ func (r *Rule) Validate(doc *xmlquery.Node) (valid bool, node *xmlquery.Node, er
 func (r *Rule) Check(doc *xmlquery.Node) (valid bool, node *xmlquery.Node, err error) {
 	suitable, err := r.CheckIfCondition(doc)
 	if err != nil {
-		fmt.Errorf("Error occured during precondition check: %s, %v", r.Having, err)
-		return false, nil, err
+		return false, nil, fmt.Errorf("Error occured during precondition check: %s, %v", r.Having, err)
 	}
 	if suitable {
 		valid, node, err := r.Validate(doc)
@@ -86,8 +85,7 @@ func CheckAll(doc *xmlquery.Node, rules []*Rule, r report.Reporter) (results []s
 		}
 		nodes, err := xmlquery.QueryAll(doc, targets)
 		if err != nil {
-			fmt.Errorf("Could not query nodes: %s", err)
-			return nil, err
+			return nil, fmt.Errorf("Could not query nodes: %s", err)
 		}
 		for i, node := range nodes {
 			valid, validatedNode, err := rule.Check(node)
