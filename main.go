@@ -6,6 +6,8 @@ import (
 	"io/ioutil"
 	"os"
 
+	flag "github.com/spf13/pflag"
+
 	"github.com/antchfx/xmlquery"
 	"github.com/bop0hz/xpath-linter/lint"
 	"github.com/bop0hz/xpath-linter/report"
@@ -90,6 +92,7 @@ func main() {
 		fmt.Printf("Something went wrong during rules evaluation: %s", err)
 		os.Exit(3)
 	}
+
 	for _, result := range results {
 		fmt.Printf("%s %s\n", fileName, result)
 	}
