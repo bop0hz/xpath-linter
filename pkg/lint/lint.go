@@ -1,10 +1,10 @@
-package lint
+package lint // import "github.com/bop0hz/xpath-linter/lint"
 
 import (
 	"fmt"
 
 	"github.com/antchfx/xmlquery"
-	"github.com/bop0hz/xml-linter/report"
+	"github.com/bop0hz/xpath-linter/pkg/report"
 )
 
 // Rule object to check

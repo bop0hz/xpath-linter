@@ -6,9 +6,9 @@ BUILD_TIME  ?= $(shell date -u '+%F_%T%z')
 COMMIT      ?= $(shell git rev-parse --short HEAD)
 RELEASE_DIR ?= release
 MODULE_NAME ?= githib.com/bop0hz/xpath-linter
-LDFLAGS     ?= '-X $(MODULE_NAME)/version.builtAt=$(BUILD_TIME) \
-				-X $(MODULE_NAME)/version.build=$(BUILD) \
-				-X $(MODULE_NAME)/version.version=$(VERSION)'
+LDFLAGS     ?= '-X $(MODULE_NAME)/pkg/version.builtAt=$(BUILD_TIME) \
+				-X $(MODULE_NAME)/pkg/version.build=$(BUILD) \
+				-X $(MODULE_NAME)/pkg/version.version=$(VERSION)'
 CONFIGS     ?= configs
 
 all: clean build test run
@@ -19,8 +19,6 @@ build: clean
 	go build -v -o $(RELEASE_DIR)/$(APP) \
 		-ldflags $(LDFLAGS) \
 		main.go
-	@cp -r ./examples $(RELEASE_DIR)/
-	@cp ./config.yaml $(RELEASE_DIR)/
 
 .PHONY: clean
 clean:
@@ -37,4 +35,4 @@ run:
 
 .PHONY: test
 test:
-	go test -v ./lint
+	go test -v ./pkg/lint

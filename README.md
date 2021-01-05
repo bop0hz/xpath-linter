@@ -56,21 +56,14 @@ rules:
 ## Command line interface
 
 ```shell
-Usage: ./release/xpath-linter [FLAGS] [FILE]
-  -cfg string
-    	File with linting rules (default "config.yaml")
-  -ci
-    	Continous integration mode. Evalutates rules from the config against the target file
-  -contain string
-    	XPath query to evaluate. Cheatsheet https://devhints.io/xpath (default "/")
-  -having string
-    	Optional XPath condition which must be true to proceed with a query. Works like a filter
-  -must
-    	Whether target node must have or not 'contain' nodes (default true)
-  -targets string
-    	XPath query to find target nodes, default is root node (default "/")
-  -version
-    	Show app version
+Usage: ./release/xpath-linter [FLAGS] [FILE] 
+      --cfg string       File with linting rules (default "config.yaml")
+      --ci               Continous integration mode. Evalutates rules from the config against the target file
+      --contain string   XPath query to evaluate. Cheatsheet https://devhints.io/xpath (default "/")
+      --having string    Optional XPath condition which must be true to proceed with a query. Works like a filter
+      --must             Whether target node must have or not 'contain' nodes (default true)
+      --targets string   XPath query to find target nodes, default is root node (default "/")
+      --version          Show app version
 ```
 
 ## XPath cheatsheet

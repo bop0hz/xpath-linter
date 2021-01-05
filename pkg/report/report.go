@@ -1,10 +1,11 @@
-package report
+package report // import "github.com/bop0hz/xpath-linter/report"
 
 import (
 	"fmt"
+	"os"
+
 	"github.com/gookit/color"
 	"github.com/mattn/go-isatty"
-	"os"
 )
 
 type Reporter interface {

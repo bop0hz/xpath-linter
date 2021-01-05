@@ -1,7 +1,6 @@
 package main
 
 import (
-	"flag"
 	"fmt"
 	"io/ioutil"
 	"os"
@@ -9,9 +8,9 @@ import (
 	flag "github.com/spf13/pflag"
 
 	"github.com/antchfx/xmlquery"
-	"github.com/bop0hz/xpath-linter/lint"
-	"github.com/bop0hz/xpath-linter/report"
-	"github.com/bop0hz/xpath-linter/version"
+	"github.com/bop0hz/xpath-linter/pkg/lint"
+	"github.com/bop0hz/xpath-linter/pkg/report"
+	"github.com/bop0hz/xpath-linter/pkg/version"
 	"gopkg.in/yaml.v2"
 )
 

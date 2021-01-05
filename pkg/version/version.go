@@ -1,4 +1,4 @@
-package version
+package version // import "github.com/bop0hz/xpath-linter/pkg/version"
 
 import (
 	"fmt"
