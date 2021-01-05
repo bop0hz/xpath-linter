@@ -29,12 +29,11 @@ clean:
 
 .PHONY: run
 run:
-	@echo "Examples:"
-	@echo "[CI mode]"
-	find ./examples -type f -exec $(RELEASE_DIR)/$(APP) -ci {} \;
-	@echo "[Adhoc mode]"
-	./$(RELEASE_DIR)/$(APP) -must=false -contain '//node[text()="1"]' ./examples/multinodes.xml
-	./$(RELEASE_DIR)/$(APP) -contain '//node[text()="4"]' ./examples/multinodes.xml
+	@echo "[e2e CI mode]"
+	find ./examples -type f -exec $(RELEASE_DIR)/$(APP) --ci --cfg examples/config.yaml {} \;
+	@echo "[e2e adhoc mode]"
+	./$(RELEASE_DIR)/$(APP) --must=false --contain '//node[text()="1"]' ./examples/multinodes.xml
+	./$(RELEASE_DIR)/$(APP) --contain '//node[text()="4"]' ./examples/multinodes.xml
 
 .PHONY: test
 test:
