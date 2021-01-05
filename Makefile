@@ -1,11 +1,11 @@
 APP         ?= xpath-linter
 GOOS        ?= linux
-VERSION     ?= 0.1.0
+VERSION     ?= 0.0.1
 BUILD       ?= 0
 BUILD_TIME  ?= $(shell date -u '+%F_%T%z')
 COMMIT      ?= $(shell git rev-parse --short HEAD)
 RELEASE_DIR ?= release
-MODULE_NAME ?= githib.com/bop0hz/xpath-linter
+MODULE_NAME ?= github.com/bop0hz/xpath-linter
 LDFLAGS     ?= '-X $(MODULE_NAME)/pkg/version.builtAt=$(BUILD_TIME) \
 				-X $(MODULE_NAME)/pkg/version.build=$(BUILD) \
 				-X $(MODULE_NAME)/pkg/version.version=$(VERSION)'

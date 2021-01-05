@@ -31,5 +31,5 @@ func Version() *AppInfo {
 }
 
 func (app *AppInfo) Print() string {
-	return fmt.Sprintf("Application was built at = %s, version = %s, build = %s\n", app.BuiltAt, app.Version, app.Build)
+	return fmt.Sprintf("%+v\n", app)
 }
