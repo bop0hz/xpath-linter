@@ -21,8 +21,8 @@ var (
 	app                       = version.Version()
 )
 
-type Config struct {
-	Rules []*lint.Rule `yaml: "rules"`
+type config struct {
+	rules []*lint.Rule `yaml: "rules"`
 }
 
 func init() {
@@ -71,13 +71,13 @@ func main() {
 		if err != nil {
 			fmt.Fprintf(os.Stdout, "Could not open config file %s\n", cfg)
 		}
-		config := Config{}
+		config := config{}
 		err = yaml.Unmarshal(data, &config)
 		if err != nil {
 			fmt.Fprintf(os.Stdout, "Could not load config: %s", err)
 			os.Exit(3)
 		}
-		rules = config.Rules
+		rules = config.rules
 	} else {
 		// Ad-hoc query
 		rule := lint.Rule{Targets: targets, Having: condition, Must: must, Contain: query}

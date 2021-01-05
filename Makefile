@@ -18,7 +18,7 @@ build: clean
 	@echo "Building the $(APP)..\n"
 	go build -v -o $(RELEASE_DIR)/$(APP) \
 		-ldflags $(LDFLAGS) \
-		main.go
+		cmd/$(APP)/main.go
 
 .PHONY: clean
 clean:
